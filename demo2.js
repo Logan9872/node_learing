@@ -1,7 +1,14 @@
 const http = require('http');
-const { request } = require('node:http');
 
 http.createServer((req, res) => {
 
-    console.log(req.url)
-})
+    console.log(req.url);
+    // 设置响应头
+    // 设置 http响应头，状态为200，文件类型为html，字符集为UTF-8
+    res.writeHead(200, { "Content-type": "text/html;charset='utf-8'" });
+
+    res.write('Today is a good day');
+
+    res.end();
+
+}).listen(3000);
